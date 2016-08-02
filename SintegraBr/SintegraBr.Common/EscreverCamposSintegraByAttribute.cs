@@ -64,9 +64,9 @@ namespace SintegraBr.Common
                     var isCode = sintegraCampoAttr.Tipo == "X";
                     var isNumber = sintegraCampoAttr.Tipo == "N";
 
-                    if (isRequired && !hasValue)
-                        throw new Exception(
-                            $"O campo {sintegraCampoAttr.Ordem} - {sintegraCampoAttr.Campo} no Registro Tipo {registroAtual} é obrigatório e não foi informado!");
+                    //if (isRequired && !hasValue)
+                    //    throw new Exception(
+                    //        $"O campo {sintegraCampoAttr.Ordem} - {sintegraCampoAttr.Campo} no Registro Tipo {registroAtual} é obrigatório e não foi informado!");
 
                     const decimal vZero = 0M;
                     if (isRequired && isDecimal &&

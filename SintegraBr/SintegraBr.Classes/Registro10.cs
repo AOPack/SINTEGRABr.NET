@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using SintegraBr.Common;
 
 namespace SintegraBr.Classes
@@ -62,6 +58,9 @@ namespace SintegraBr.Classes
         Cod5 = 5
     }
 
+    /// <summary>
+    /// REGISTRO TIPO 10 - MESTRE DO ESTABELECIMENTO
+    /// </summary>
     public class Registro10 : RegistroBaseSintegra
     {
         public Registro10()
@@ -69,36 +68,69 @@ namespace SintegraBr.Classes
             Tipo = "10";
         }
 
-        [SintegraCampos(2, "CGC/MF", "N", 14, 0, true)]
-        public string CgcMf { get; set; }
+        /// <summary>
+        /// CGC/MF -> CNPJ do estabelecimento informante
+        /// </summary>
+        [SintegraCampos(2, "CNPJ", "N", 14, 0, true)]
+        public string Cnpj { get; set; }
 
+        /// <summary>
+        /// Inscrição estadual do estabelecimento informante
+        /// </summary>
         [SintegraCampos(3, "INSCRIÇÃO ESTADUAL", "X", 14, 0, true)]
-        public string InscricaoEstadual { get; set; }
+        public string InscrEstadual { get; set; }
 
+        /// <summary>
+        /// Nome comercial (razão social/denominação) do contribuinte
+        /// </summary>
         [SintegraCampos(4, "NOME DO CONTRIBUINTE", "X", 35, 0, true)]
         public string NomeContribuinte { get; set; }
 
+        /// <summary>
+        /// Município onde está domiciliado o estabelecimento informante
+        /// </summary>
         [SintegraCampos(5, "MUNICÍPIO", "X", 30, 0, true)]
         public string Municipio { get; set; }
 
+        /// <summary>
+        /// Unidade da federação referente ao município
+        /// </summary>
         [SintegraCampos(6, "UF", "X", 2, 0, true)]
         public string Uf { get; set; }
 
+        /// <summary>
+        /// Número do fax do estabelecimento informante
+        /// </summary>
         [SintegraCampos(7, "FAX", "N", 10, 0, true)]
         public string Fax { get; set; }
 
+        /// <summary>
+        /// A data de início do período referente às informações prestadas
+        /// </summary>
         [SintegraCampos(8, "DATA INICIAL", "N", 8, 0, true)]
         public DateTime DataInicial { get; set; }
 
+        /// <summary>
+        /// A data do fim do período referente às informações prestadas
+        /// </summary>
         [SintegraCampos(9, "DATA FINAL", "N", 8, 0, true)]
         public DateTime DataFinal { get; set; }
 
+        /// <summary>
+        /// Código da identificação da estrutura do arquivo magnético entregue
+        /// </summary>
         [SintegraCampos(10, "CÓDIGO DA ESTRUTURA", "X", 1, 0, true)]
         public int CodEstrutura { get; set; }
 
+        /// <summary>
+        /// Código da identificação da natureza das operações informadas
+        /// </summary>
         [SintegraCampos(11, "CÓDIGO DAS OPERAÇÕES", "X", 1, 0, true)]
         public int CodOperacoes { get; set; }
 
+        /// <summary>
+        /// Código de finalidade utilizado no arquivo magnético
+        /// </summary>
         [SintegraCampos(12, "CÓDIGO DA FINALIDADE", "X", 1, 0, true)]
         public int CodFinalidade { get; set; }
     }

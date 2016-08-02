@@ -42,6 +42,12 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro10.cs" />
+    <Compile Include="Registro11.cs" />
+    <Compile Include="Registro50.cs" />
+    <Compile Include="Registro51.cs" />
+    <Compile Include="Registro53.cs" />
+    <Compile Include="Registro54.cs" />
+    <Compile Include="Registro90.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SintegraBr.Common\SintegraBr.Common.csproj">
