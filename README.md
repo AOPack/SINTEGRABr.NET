@@ -1,6 +1,10 @@
 # SINTEGRABr
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SINTEGRA.
 
+###TODO
+
+- [ ] Melhorar geração do Registro Tipo 90 para comportar mais de 1 registro deste tipo no arquivo.
+
 ##Ajuda?
 
 Visite a Wiki do projeto ou [clique aqui] (https://github.com/samuelroliveira/SINTEGRABr/wiki).
