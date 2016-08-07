@@ -72,19 +72,19 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Base de cálculo de retenção do ICMS (com 2 decimais)
         /// </summary>
-        [SintegraCampos(11, "BASE ICMS ST", "N", 13, 2, true)]
+        [SintegraCampos(11, "BASE ICMS ST", "N", 13, 2, false)]
         public decimal? BaseIcmsSt { get; set; }
 
         /// <summary>
         /// ICMS retido pelo substituto (com 2 decimais)
         /// </summary>
-        [SintegraCampos(12, "ICMS RETIDO", "N", 13, 2, true)]
+        [SintegraCampos(12, "ICMS RETIDO", "N", 13, 2, false)]
         public decimal? VlIcmsRetido { get; set; }
 
         /// <summary>
         /// Soma das despesas acessórias (frete, seguro e outras - com 2 decimais)
         /// </summary>
-        [SintegraCampos(13, "DESPESAS ACESSÓRIAS", "N", 13, 2, true)]
+        [SintegraCampos(13, "DESPESAS ACESSÓRIAS", "N", 13, 2, false)]
         public decimal? VlDespesasAcessorias { get; set; }
 
         /// <summary>

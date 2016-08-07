@@ -64,19 +64,19 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Montante do IPI (com 2 decimais)
         /// </summary>
-        [SintegraCampos(10, "VALOR DO IPI", "N", 13, 2, true)]
+        [SintegraCampos(10, "VALOR DO IPI", "N", 13, 2, false)]
         public decimal? VlIpi { get; set; }
 
         /// <summary>
         /// Valor amparado por isenção ou não incidência do IPI (com 2 decimais)
         /// </summary>
-        [SintegraCampos(11, "ISENTA OU NÃO TRIBUTADA", "N", 13, 2, true)]
+        [SintegraCampos(11, "ISENTA OU NÃO TRIBUTADA", "N", 13, 2, false)]
         public decimal? VlIsentaNTribIpi { get; set; }
 
         /// <summary>
         /// Valor que não confira débito ou crédito do IPI (com 2 decimais)
         /// </summary>
-        [SintegraCampos(12, "OUTRAS", "N", 13, 2, true)]
+        [SintegraCampos(12, "OUTRAS", "N", 13, 2, false)]
         public decimal? VlOutrasIpi { get; set; }
 
         /// <summary>

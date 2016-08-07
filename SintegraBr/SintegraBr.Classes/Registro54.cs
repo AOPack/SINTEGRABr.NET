@@ -75,31 +75,31 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Valor do desconto concedido no item (com 2 decimais)
         /// </summary>
-        [SintegraCampos(2, "VALOR DESCONTO/DESPESA ACESSÓRIA", "N", 12, 2, true)]
+        [SintegraCampos(2, "VALOR DESCONTO/DESPESA ACESSÓRIA", "N", 12, 2, false)]
         public decimal? VlDescontoDespesaAc { get; set; }
 
         /// <summary>
         /// Base de cálculo do ICMS (com 2 decimais)
         /// </summary>
-        [SintegraCampos(2, "BASE CÁLCULO ICMS", "N", 12, 2, true)]
+        [SintegraCampos(2, "BASE CÁLCULO ICMS", "N", 12, 2, false)]
         public decimal? BaseCalculoIcms { get; set; }
 
         /// <summary>
         /// Base de cálculo do ICMS de retenção na Substituição Tributária (com 2 decimais)
         /// </summary>
-        [SintegraCampos(2, "BASE CÁLCULO ICMS ST", "N", 12, 2, true)]
+        [SintegraCampos(2, "BASE CÁLCULO ICMS ST", "N", 12, 2, false)]
         public decimal? BaseCalculoIcmsSt { get; set; }
 
         /// <summary>
         /// Valor do IPI (com 2 decimais)
         /// </summary>
-        [SintegraCampos(2, "VALOR DO IPI", "N", 12, 2, true)]
+        [SintegraCampos(2, "VALOR DO IPI", "N", 12, 2, false)]
         public decimal? VlIpi { get; set; }
 
         /// <summary>
         /// Alíquota utilizada no cálculo do ICMS (com 2 decimais)
         /// </summary>
-        [SintegraCampos(2, "ALÍQUOTA DO ICMS", "N", 4, 2, true)]
+        [SintegraCampos(2, "ALÍQUOTA DO ICMS", "N", 4, 2, false)]
         public decimal? AliquotaIcms { get; set; }
     }
 }

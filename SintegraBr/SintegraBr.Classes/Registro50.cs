@@ -84,25 +84,25 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Montante do imposto (com 2 decimais)
         /// </summary>
-        [SintegraCampos(13, "VALOR DO ICMS", "N", 13, 2, true)]
+        [SintegraCampos(13, "VALOR DO ICMS", "N", 13, 2, false)]
         public decimal? ValorIcms { get; set; }
 
         /// <summary>
         /// Valor amparado por isenção ou não incidência (com 2 decimais)
         /// </summary>
-        [SintegraCampos(14, "ISENTA OU NÃO TRIBUTADA", "N", 13, 2, true)]
+        [SintegraCampos(14, "ISENTA OU NÃO TRIBUTADA", "N", 13, 2, false)]
         public decimal? ValorIsentaOuNaoTributadas { get; set; }
 
         /// <summary>
         /// Valor que não confira débito ou crédito do ICMS (com 2 decimais)
         /// </summary>
-        [SintegraCampos(15, "OUTRAS", "N", 13, 2, true)]
+        [SintegraCampos(15, "OUTRAS", "N", 13, 2, false)]
         public decimal? ValorOutras { get; set; }
 
         /// <summary>
         /// Alíquota do ICMS (com 2 decimais)
         /// </summary>
-        [SintegraCampos(16, "ALIQUOTA DO ICMS", "N", 4, 2, true)]
+        [SintegraCampos(16, "ALIQUOTA DO ICMS", "N", 4, 2, false)]
         public decimal? AliquotaIcms { get; set; }
 
         /// <summary>
