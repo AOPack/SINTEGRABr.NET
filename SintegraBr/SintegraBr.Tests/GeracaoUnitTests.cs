@@ -30,15 +30,15 @@ namespace SintegraBr.Tests
         [TestMethod]
         public void GerarRegistro11()
         {
-            var r11 = new Registro11();
-
-            r11.Logradouro = "RUA SEM NOME PARA TESTE";
-            r11.Numero = "123";
-            r11.Complemento = "";
-            r11.Bairro = "CENTRO";
-            r11.Cep = "36900000";
-            r11.NomeContato = "ADEMERIO EDUARDO MOREIRA";
-            r11.Telefone = "3333315808";
+            var r11 = new Registro11(
+                Logradouro: "RUA SEM NOME PARA TESTE",
+                Numero: "",
+                Complemento: "",
+                Bairro: "CENTRO",
+                Cep: "36900000",
+                NomeContato: "ADEMERIO EDUARDO MOREIRA",
+                NumeroContato: "3333315808"
+                );
 
             var result = r11.EscreverCampos();
         }

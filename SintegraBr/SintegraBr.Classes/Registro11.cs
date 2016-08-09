@@ -1,4 +1,5 @@
-﻿using SintegraBr.Common;
+﻿using System;
+using SintegraBr.Common;
 
 namespace SintegraBr.Classes
 {
@@ -7,9 +8,27 @@ namespace SintegraBr.Classes
     /// </summary>
     public class Registro11 : RegistroBaseSintegra
     {
-        public Registro11()
+        /// <summary>
+        /// Preencher Registro Tipo 11 do arquivo
+        /// </summary>
+        /// <param name="Logradouro">Logradouro do endereço do informante</param>
+        /// <param name="Numero">Número do endereço do informante</param>
+        /// <param name="Complemento">Complemento do endereço do informante</param>
+        /// <param name="Bairro">Bairro do endereço do informante</param>
+        /// <param name="Cep">Cep do endereço do informante</param>
+        /// <param name="NomeContato">Nome para contato</param>
+        /// <param name="NumeroContato">Número para contato</param>
+        public Registro11(string Logradouro, string Numero, string Complemento, string Bairro, string Cep,
+            string NomeContato, string NumeroContato)
         {
             Tipo = "11";
+            this.Logradouro = Logradouro;
+            this.Numero = string.IsNullOrEmpty(Numero) ? "00000" : Numero;
+            this.Complemento = string.IsNullOrEmpty(Numero) && string.IsNullOrEmpty(Complemento) ? "s/nº" : Complemento;
+            this.Bairro = Bairro;
+            this.Cep = Cep;
+            this.NomeContato = NomeContato;
+            this.Telefone = NumeroContato;
         }
 
         /// <summary>

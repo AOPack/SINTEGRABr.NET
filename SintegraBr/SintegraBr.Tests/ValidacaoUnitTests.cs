@@ -15,7 +15,7 @@ namespace SintegraBr.Tests
         [TestMethod]
         public void ConsisteInscricaoEstadualValida()
         {
-            var result = ValidarIe.ConsisteInscricaoEstadual("106645358", "GO");
+            var result = ValidarIe.ConsisteInscricaoEstadual("INSCR_ESTADUAL", "GO");
 
             Assert.AreEqual(0, result);
         }
@@ -34,7 +34,7 @@ namespace SintegraBr.Tests
         [TestMethod]
         public void ValidarInscricaoEstadualTrue()
         {
-            var result = ValidarIe.Validar("106645358", "GO");
+            var result = ValidarIe.Validar("INSCR_ESTADUAL", "GO");
 
             Assert.AreEqual(true, result);
         }
