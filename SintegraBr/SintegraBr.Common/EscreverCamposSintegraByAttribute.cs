@@ -63,6 +63,7 @@ namespace SintegraBr.Common
                     // Verificação necessária p/ ajustes no tamanho de campos.
                     var isCode = sintegraCampoAttr.Tipo == "X";
                     var isNumber = sintegraCampoAttr.Tipo == "N";
+                    var isPartialDate = sintegraCampoAttr.Tipo == "DP";
 
                     //if (isRequired && !hasValue)
                     //    throw new Exception(
@@ -87,7 +88,10 @@ namespace SintegraBr.Common
                             sb.Append(vDecimal.ToStringSafe().Replace(".", "").Replace(",", "").PadRight(sintegraCampoAttr.Tamanho, '0'));
                         }
                         else if (isDateTime && hasValue)
-                            sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
+                            if (isPartialDate)
+                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy"));
+                            else
+                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
                         else if (isNullableDateTime && hasValue)
                             sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
                         else if (isCode && hasValue)
