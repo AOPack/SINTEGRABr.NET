@@ -49,10 +49,15 @@
     <Compile Include="Registro53.cs" />
     <Compile Include="Registro54.cs" />
     <Compile Include="Registro60A.cs" />
+    <Compile Include="Registro60D.cs" />
     <Compile Include="Registro60I.cs" />
     <Compile Include="Registro60M.cs" />
     <Compile Include="Registro60R.cs" />
     <Compile Include="Registro61.cs" />
+    <Compile Include="Registro61R.cs" />
+    <Compile Include="Registro70.cs" />
+    <Compile Include="Registro74.cs" />
+    <Compile Include="Registro75.cs" />
     <Compile Include="Registro90.cs" />
   </ItemGroup>
   <ItemGroup>
