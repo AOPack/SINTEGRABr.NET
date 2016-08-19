@@ -3,7 +3,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para gera
 
 ###TODO
 
-- [ ] Melhorar geração do Registro Tipo 90 para comportar mais de 1 registro deste tipo no arquivo.
+- [x] Melhorar geração do Registro Tipo 90 para comportar mais de 1 registro deste tipo no arquivo.
 
 ##Ajuda?
 
