@@ -59,7 +59,7 @@ namespace SintegraBr.Classes
             this.CNPJ = inscrCnpj;
             this.IE = inscrEstadual;
 
-            registros.Add(new Registro90Temp() {TIPO_A_SER_TOTALIZADO = "99", TOTAL_DE_REGISTROS = linhas.Count + 1});
+            registros.Add(new Registro90Temp() { TIPO_A_SER_TOTALIZADO = "99", TOTAL_DE_REGISTROS = linhas.Count + 1 });
 
             this.TotalizadoresDeRegistros = registros;
         }
@@ -67,25 +67,47 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Efetua a escrita do Registro 90 do arquivo.
         /// </summary>
-        /// <returns>String</returns>
-        public string EscreverRegistro90()
+        /// <returns>Strings</returns>
+        public List<string> EscreverRegistro90()
         {
+            var listReturn = new List<string>();
+
+            int totalRegistrosTipo90 = 1;
+
             int tamanhoPosicaoTipo = 2;
             int posicaoInicialTipo = 31;
 
             int tamanhoPosicaoTotal = 8;
             int posicaoInicialTotal = 33;
 
-            var r90 = new string(' ', 126);
+            string r90 = null;
             try
             {
-                r90 = r90.PreencherValorNaLinha(1, 2, TIPO.PadLeft(2, ' '));
-                r90 = r90.PreencherValorNaLinha(3, 16, CNPJ.PadLeft(14, ' '));
-                r90 = r90.PreencherValorNaLinha(17, 30, IE.PadRight(14, ' '));
-
                 foreach (var registroAtual in TotalizadoresDeRegistros)
                 {
-                    r90 = r90.PreencherValorNaLinha(posicaoInicialTipo, (posicaoInicialTipo + (tamanhoPosicaoTipo - 1)),
+                    if (posicaoInicialTipo == 121 || posicaoInicialTotal == 123)
+                    {
+                        listReturn.Add(r90);
+
+                        // Reinicia o registro tipo 90 para inserção de nova linha para contagem dos demais registros.
+                        r90 = null;
+                        totalRegistrosTipo90++;
+
+                        posicaoInicialTipo = 31;
+                        posicaoInicialTotal = 33;
+                    }
+
+                    if (string.IsNullOrEmpty(r90))
+                    {
+                        r90 = new string(' ', 126);
+
+                        r90 = r90.PreencherValorNaLinha(1, 2, TIPO.PadLeft(2, ' '));
+                        r90 = r90.PreencherValorNaLinha(3, 16, CNPJ.PadLeft(14, ' '));
+                        r90 = r90.PreencherValorNaLinha(17, 30, IE.PadRight(14, ' '));
+                    }
+
+                    r90 = r90.PreencherValorNaLinha(posicaoInicialTipo,
+                        (posicaoInicialTipo + (tamanhoPosicaoTipo - 1)),
                         registroAtual.TIPO_A_SER_TOTALIZADO);
                     r90 = r90.PreencherValorNaLinha(posicaoInicialTotal,
                         (posicaoInicialTotal + (tamanhoPosicaoTotal - 1)),
@@ -95,9 +117,11 @@ namespace SintegraBr.Classes
                     posicaoInicialTotal = posicaoInicialTipo + tamanhoPosicaoTipo;
                 }
 
-                r90 = r90.PreencherValorNaLinha(126, 126, "1");
+                r90 = r90.PreencherValorNaLinha(126, 126, totalRegistrosTipo90.ToString());
 
-                return r90;
+                listReturn.Add(r90);
+
+                return listReturn;
             }
             catch (Exception e)
             {

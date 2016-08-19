@@ -12,7 +12,7 @@ namespace SintegraBr.Classes
     /// </summary>
     public class Registro75 : RegistroBaseSintegra
     {
-        Registro75()
+        public Registro75()
         {
             Tipo = "75";
         }
