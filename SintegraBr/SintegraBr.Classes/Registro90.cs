@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using SintegraBr.Common;
+using System.Text;
 
 namespace SintegraBr.Classes
 {
@@ -68,9 +70,9 @@ namespace SintegraBr.Classes
         /// Efetua a escrita do Registro 90 do arquivo.
         /// </summary>
         /// <returns>Strings</returns>
-        public List<string> EscreverRegistro90()
+        public string EscreverRegistro90()
         {
-            var listReturn = new List<string>();
+            var sb = new StringBuilder();
 
             int totalRegistrosTipo90 = 1;
 
@@ -87,7 +89,8 @@ namespace SintegraBr.Classes
                 {
                     if (posicaoInicialTipo == 121 || posicaoInicialTotal == 123)
                     {
-                        listReturn.Add(r90);
+                        sb.Append(r90);
+                        sb.Append(Environment.NewLine);
 
                         // Reinicia o registro tipo 90 para inserção de nova linha para contagem dos demais registros.
                         r90 = null;
@@ -119,9 +122,9 @@ namespace SintegraBr.Classes
 
                 r90 = r90.PreencherValorNaLinha(126, 126, totalRegistrosTipo90.ToString());
 
-                listReturn.Add(r90);
+                sb.Append(r90);
 
-                return listReturn;
+                return sb.ToString();
             }
             catch (Exception e)
             {

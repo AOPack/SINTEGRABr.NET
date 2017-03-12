@@ -72,20 +72,38 @@ namespace SintegraBr.Common
                     const decimal vZero = 0M;
                     if (isRequired && isDecimal &&
                         (propertyValueToStringSafe == string.Empty || propertyValueToStringSafe.ToDecimal() == 0))
-                        sb.Append(vZero.ToString("N" + sintegraCampoAttr.QtdCasas).Replace(",", "").PadRight(sintegraCampoAttr.Tamanho, '0'));
+                        sb.Append(vZero.ToString("N" + sintegraCampoAttr.QtdCasas).Replace(",", "").PadLeft(sintegraCampoAttr.Tamanho, '0'));
                     else
                     {
-                        if (isDecimal && hasValue)
+                        if (isDecimal)
                         {
-                            var vDecimal =
-                                Convert.ToDecimal(propertyValue).ToString("N" + sintegraCampoAttr.QtdCasas);
-                            sb.Append(vDecimal.ToStringSafe().Replace(".", "").Replace(",", "").PadRight(sintegraCampoAttr.Tamanho, '0'));
+                            if (!hasValue)
+                                sb.Append(0.ToStringSafe().PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                            else
+                            {
+                                var vDecimal =
+                                    Convert.ToDecimal(propertyValue).ToString("N" + sintegraCampoAttr.QtdCasas);
+                                sb.Append(
+                                    vDecimal.ToStringSafe()
+                                        .Replace(".", "")
+                                        .Replace(",", "")
+                                        .PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                            }
                         }
-                        else if (isNullableDecimal && hasValue)
+                        else if (isNullableDecimal)
                         {
-                            var vDecimal =
-                                Convert.ToDecimal(propertyValue).ToString("N" + sintegraCampoAttr.QtdCasas);
-                            sb.Append(vDecimal.ToStringSafe().Replace(".", "").Replace(",", "").PadRight(sintegraCampoAttr.Tamanho, '0'));
+                            if (!hasValue)
+                                sb.Append(0.ToStringSafe().PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                            else
+                            {
+                                var vDecimal =
+                                    Convert.ToDecimal(propertyValue).ToString("N" + sintegraCampoAttr.QtdCasas);
+                                sb.Append(
+                                    vDecimal.ToStringSafe()
+                                        .Replace(".", "")
+                                        .Replace(",", "")
+                                        .PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                            }
                         }
                         else if (isDateTime && hasValue)
                             if (isPartialDate)
@@ -94,10 +112,14 @@ namespace SintegraBr.Common
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
                         else if (isNullableDateTime && hasValue)
                             sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
-                        else if (isCode && hasValue)
-                            sb.Append(propertyValue.ToString().PadRight(sintegraCampoAttr.Tamanho, ' '));
+                        else if (isCode)
+                            sb.Append(propertyValueToStringSafe.PadRight(sintegraCampoAttr.Tamanho, ' '));
                         else if (isNumber && hasValue)
-                            sb.Append(propertyValue.ToString().Replace(".", "").Replace(",", "").PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                            sb.Append(
+                                propertyValue.ToString()
+                                    .Replace(".", "")
+                                    .Replace(",", "")
+                                    .PadLeft(sintegraCampoAttr.Tamanho, '0'));
                         else
                         {
                             if (propertyLength > 0 && (propertyLength > sintegraCampoAttr.Tamanho))

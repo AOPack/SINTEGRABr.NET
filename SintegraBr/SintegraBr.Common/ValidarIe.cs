@@ -45,7 +45,7 @@ namespace SintegraBr.Common
 
             switch (pUF.ToUpper())
             {
-                #region AC
+                    #region AC
 
                 case "AC":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
@@ -55,11 +55,11 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -74,9 +74,9 @@ namespace SintegraBr.Common
                     }
                     break;
 
-                #endregion AC
+                    #endregion AC
 
-                #region AL
+                    #region AL
 
                 case "AL":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
@@ -86,12 +86,12 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intSoma = (intSoma * 10);
-                        intResto = (intSoma % 11);
+                        intSoma = (intSoma*10);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto == 10) ? "0" : Convert.ToString(intResto)).Substring(
@@ -105,9 +105,9 @@ namespace SintegraBr.Common
                     }
                     break;
 
-                #endregion AL
+                    #endregion AL
 
-                #region AM
+                    #region AM
 
                 case "AM":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
@@ -115,7 +115,7 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
                     {
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
                         intSoma = (intSoma + intValor);
                     }
                     if ((intSoma < 11))
@@ -125,7 +125,7 @@ namespace SintegraBr.Common
                     }
                     else
                     {
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
                                 (((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Length - 1));
@@ -138,9 +138,9 @@ namespace SintegraBr.Common
                     }
                     break;
 
-                #endregion AM
+                    #endregion AM
 
-                #region AP
+                    #region AP
 
                 case "AP":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
@@ -169,11 +169,11 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
                         intValor = (11 - intResto);
                         if ((intValor == 10))
                         {
@@ -193,21 +193,24 @@ namespace SintegraBr.Common
                     }
                     break;
 
-                #endregion AP
+                    #endregion AP
+
+                    #region BA
 
                 case "BA":
                     strBase = (strOrigem.Trim() + "00000000").Substring(0, 8);
-                    if ((("0123458".IndexOf(strBase.Substring(0, 1), 0, System.StringComparison.OrdinalIgnoreCase) + 1) > 0))
+                    if ((("0123458".IndexOf(strBase.Substring(0, 1), 0, System.StringComparison.OrdinalIgnoreCase) + 1) >
+                         0))
                     {
                         intSoma = 0;
                         for (intPos = 1; (intPos <= 6); intPos++)
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * (8 - intPos));
+                            intValor = (intValor*(8 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 10);
+                        intResto = (intSoma%10);
 
                         strDigito2 =
                             ((intResto == 0) ? "0" : Convert.ToString((10 - intResto))).Substring(
@@ -219,11 +222,11 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 7); intPos++)
                         {
                             intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
-                            intValor = (intValor * (9 - intPos));
+                            intValor = (intValor*(9 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 10);
+                        intResto = (intSoma%10);
 
                         strDigito1 =
                             ((intResto == 0) ? "0" : Convert.ToString((10 - intResto))).Substring(
@@ -235,11 +238,11 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 6); intPos++)
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * (8 - intPos));
+                            intValor = (intValor*(8 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito2 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -251,11 +254,11 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 7); intPos++)
                         {
                             intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
-                            intValor = (intValor * (9 - intPos));
+                            intValor = (intValor*(9 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -268,6 +271,11 @@ namespace SintegraBr.Common
                         retorno = true;
                     }
                     break;
+
+                    #endregion BA
+
+                    #region CE
+
                 case "CE":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
 
@@ -275,11 +283,11 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
                     {
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
                         intSoma = (intSoma + intValor);
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
                     intValor = (11 - intResto);
                     if ((intValor > 9))
                     {
@@ -293,6 +301,11 @@ namespace SintegraBr.Common
                         retorno = true;
                     }
                     break;
+
+                    #endregion CE
+
+                    #region DF
+
                 case "DF":
                     strBase = (strOrigem.Trim() + "0000000000000").Substring(0, 13);
                     if ((strBase.Substring(0, 3) == "073"))
@@ -302,7 +315,7 @@ namespace SintegraBr.Common
                         for (intPos = 11; (intPos <= 1); intPos = (intPos + -1))
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
                             intSoma = (intSoma + intValor);
                             intPeso = (intPeso + 1);
                             if ((intPeso > 9))
@@ -311,7 +324,7 @@ namespace SintegraBr.Common
                             }
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -324,7 +337,7 @@ namespace SintegraBr.Common
                         for (intPos = 12; (intPos <= 1); intPos = (intPos + -1))
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
                             intSoma = (intSoma + intValor);
                             intPeso = (intPeso + 1);
                             if ((intPeso > 9))
@@ -333,7 +346,7 @@ namespace SintegraBr.Common
                             }
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito2 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -346,6 +359,11 @@ namespace SintegraBr.Common
                         }
                     }
                     break;
+
+                    #endregion DF
+
+                    #region ES
+
                 case "ES":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
 
@@ -353,11 +371,11 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
                     {
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
                         intSoma = (intSoma + intValor);
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito1 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -370,6 +388,11 @@ namespace SintegraBr.Common
                         retorno = true;
                     }
                     break;
+
+                    #endregion ES
+
+                    #region GO
+
                 case "GO":
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
 
@@ -380,11 +403,11 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
                         {
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
                             intSoma = (intSoma + intValor);
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         if ((intResto == 0))
                         {
@@ -395,11 +418,9 @@ namespace SintegraBr.Common
                             intNumero = int.Parse(strBase.Substring(0, 8));
 
                             strDigito1 = (((intNumero >= 10103105)
-
                                            && (intNumero <= 10119997))
                                 ? "1"
                                 : "0").Substring(((((intNumero >= 10103105)
-
                                                     && (intNumero <= 10119997))
                                     ? "1"
                                     : "0").Length - 1));
@@ -418,6 +439,11 @@ namespace SintegraBr.Common
                         }
                     }
                     break;
+
+                    #endregion GO
+
+                    #region MA
+
                 case "MA":
 
                     strBase = (strOrigem.Trim() + "000000000").Substring(0, 9);
@@ -425,22 +451,19 @@ namespace SintegraBr.Common
                     if ((strBase.Substring(0, 2) == "12"))
 
                     {
-
                         intSoma = 0;
 
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
 
                             intSoma = (intSoma + intValor);
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -451,14 +474,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion MA
+
+                    #region MT
 
                 case "MT":
 
@@ -471,10 +495,9 @@ namespace SintegraBr.Common
                     for (intPos = 10; (intPos <= 1); intPos = (intPos + -1))
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * intPeso);
+                        intValor = (intValor*intPeso);
 
                         intSoma = (intSoma + intValor);
 
@@ -483,14 +506,11 @@ namespace SintegraBr.Common
                         if ((intPeso > 9))
 
                         {
-
                             intPeso = 2;
-
                         }
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito1 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -501,12 +521,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion MT
+
+                    #region MS
 
                 case "MS":
 
@@ -515,22 +537,19 @@ namespace SintegraBr.Common
                     if ((strBase.Substring(0, 2) == "28"))
 
                     {
-
                         intSoma = 0;
 
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
 
                             intSoma = (intSoma + intValor);
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -541,14 +560,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion MS
+
+                    #region MG
 
                 case "MG":
 
@@ -561,26 +581,22 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 12); intPos++)
 
                     {
-
                         intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
 
                         intNumero = ((intNumero == 2) ? 1 : 2);
 
-                        intValor = (intValor * intNumero);
+                        intValor = (intValor*intNumero);
 
                         if ((intValor > 9))
 
                         {
-
                             strDigito1 = string.Format("00", intValor);
 
                             intValor = (int.Parse(strDigito1.Substring(0, 1)) +
                                         int.Parse(strDigito1.Substring((strDigito1.Length - 1))));
-
                         }
 
                         intSoma = (intSoma + intValor);
-
                     }
 
                     intValor = intSoma;
@@ -588,7 +604,6 @@ namespace SintegraBr.Common
                     while ((string.Format("000", intValor).Substring((string.Format("000", intValor).Length - 1)) != "0"))
 
                     {
-
                         intValor = (intValor + 1);
 
                         strDigito1 =
@@ -604,10 +619,9 @@ namespace SintegraBr.Common
                         for (intPos = 12; (intPos <= 1); intPos = (intPos + -1))
 
                         {
-
                             intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
 
                             intSoma = (intSoma + intValor);
 
@@ -616,14 +630,11 @@ namespace SintegraBr.Common
                             if ((intPeso > 11))
 
                             {
-
                                 intPeso = 2;
-
                             }
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito2 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -634,14 +645,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion MG
+
+                    #region PA
 
                 case "PA":
 
@@ -650,22 +662,19 @@ namespace SintegraBr.Common
                     if ((strBase.Substring(0, 2) == "15"))
 
                     {
-
                         intSoma = 0;
 
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
 
                             intSoma = (intSoma + intValor);
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -676,14 +685,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion PA
+
+                    #region PB
 
                 case "PB":
 
@@ -694,25 +704,21 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
 
                         intSoma = (intSoma + intValor);
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     intValor = (11 - intResto);
 
                     if ((intValor > 9))
 
                     {
-
                         intValor = 0;
-
                     }
 
                     strDigito1 = Convert.ToString(intValor).Substring((Convert.ToString(intValor).Length - 1));
@@ -722,12 +728,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion PB
+
+                    #region PE
 
                 case "PE":
 
@@ -740,10 +748,9 @@ namespace SintegraBr.Common
                     for (intPos = 13; (intPos <= 1); intPos = (intPos + -1))
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * intPeso);
+                        intValor = (intValor*intPeso);
 
                         intSoma = (intSoma + intValor);
 
@@ -752,23 +759,18 @@ namespace SintegraBr.Common
                         if ((intPeso > 9))
 
                         {
-
                             intPeso = 2;
-
                         }
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     intValor = (11 - intResto);
 
                     if ((intValor > 9))
 
                     {
-
                         intValor = (intValor - 10);
-
                     }
 
                     strDigito1 = Convert.ToString(intValor).Substring((Convert.ToString(intValor).Length - 1));
@@ -778,12 +780,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion PE
+
+                    #region PI
 
                 case "PI":
 
@@ -794,16 +798,14 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
 
                         intSoma = (intSoma + intValor);
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito1 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -814,12 +816,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion PI
+
+                    #region PR
 
                 case "PR":
 
@@ -832,10 +836,9 @@ namespace SintegraBr.Common
                     for (intPos = 8; (intPos <= 1); intPos = (intPos + -1))
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * intPeso);
+                        intValor = (intValor*intPeso);
 
                         intSoma = (intSoma + intValor);
 
@@ -844,14 +847,11 @@ namespace SintegraBr.Common
                         if ((intPeso > 7))
 
                         {
-
                             intPeso = 2;
-
                         }
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito1 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -866,10 +866,9 @@ namespace SintegraBr.Common
                     for (intPos = 9; (intPos <= 1); intPos = (intPos + -1))
 
                     {
-
                         intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * intPeso);
+                        intValor = (intValor*intPeso);
 
                         intSoma = (intSoma + intValor);
 
@@ -878,14 +877,11 @@ namespace SintegraBr.Common
                         if ((intPeso > 7))
 
                         {
-
                             intPeso = 2;
-
                         }
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito2 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -896,12 +892,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion PR
+
+                    #region RJ
 
                 case "RJ":
 
@@ -914,10 +912,9 @@ namespace SintegraBr.Common
                     for (intPos = 7; (intPos <= 1); intPos = (intPos + -1))
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * intPeso);
+                        intValor = (intValor*intPeso);
 
                         intSoma = (intSoma + intValor);
 
@@ -926,14 +923,11 @@ namespace SintegraBr.Common
                         if ((intPeso > 7))
 
                         {
-
                             intPeso = 2;
-
                         }
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito1 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -944,12 +938,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion RJ
+
+                    #region RN
 
                 case "RN":
 
@@ -958,24 +954,21 @@ namespace SintegraBr.Common
                     if ((strBase.Substring(0, 2) == "20"))
 
                     {
-
                         intSoma = 0;
 
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
 
                             intSoma = (intSoma + intValor);
-
                         }
 
-                        intSoma = (intSoma * 10);
+                        intSoma = (intSoma*10);
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto > 9) ? "0" : Convert.ToString(intResto)).Substring(
@@ -986,14 +979,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion RN
+
+                    #region RO
 
                 case "RO":
 
@@ -1006,25 +1000,21 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 5); intPos++)
 
                     {
-
                         intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * (7 - intPos));
+                        intValor = (intValor*(7 - intPos));
 
                         intSoma = (intSoma + intValor);
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     intValor = (11 - intResto);
 
                     if ((intValor > 9))
 
                     {
-
                         intValor = (intValor - 10);
-
                     }
 
                     strDigito1 = Convert.ToString(intValor).Substring((Convert.ToString(intValor).Length - 1));
@@ -1034,12 +1024,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion RO
+
+                    #region RR
 
                 case "RR":
 
@@ -1048,22 +1040,19 @@ namespace SintegraBr.Common
                     if ((strBase.Substring(0, 2) == "24"))
 
                     {
-
                         intSoma = 0;
 
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
 
                             intSoma = (intSoma + intValor);
-
                         }
 
-                        intResto = (intSoma % 9);
+                        intResto = (intSoma%9);
 
                         strDigito1 = Convert.ToString(intResto).Substring((Convert.ToString(intResto).Length - 1));
 
@@ -1072,14 +1061,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion RR
+
+                    #region RS
 
                 case "RS":
 
@@ -1088,11 +1078,9 @@ namespace SintegraBr.Common
                     intNumero = int.Parse(strBase.Substring(0, 3));
 
                     if (((intNumero > 0)
-
                          && (intNumero < 468)))
 
                     {
-
                         intSoma = 0;
 
                         intPeso = 2;
@@ -1100,10 +1088,9 @@ namespace SintegraBr.Common
                         for (intPos = 9; (intPos <= 1); intPos = (intPos + -1))
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
 
                             intSoma = (intSoma + intValor);
 
@@ -1112,23 +1099,18 @@ namespace SintegraBr.Common
                             if ((intPeso > 9))
 
                             {
-
                                 intPeso = 2;
-
                             }
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         intValor = (11 - intResto);
 
                         if ((intValor > 9))
 
                         {
-
                             intValor = 0;
-
                         }
 
                         strDigito1 = Convert.ToString(intValor).Substring((Convert.ToString(intValor).Length - 1));
@@ -1138,14 +1120,15 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
 
                     break;
+
+                    #endregion RS
+
+                    #region SC
 
                 case "SC":
 
@@ -1156,16 +1139,14 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
 
                         intSoma = (intSoma + intValor);
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     strDigito1 =
                         ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -1176,12 +1157,14 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion SC
+
+                    #region SE
 
                 case "SE":
 
@@ -1192,25 +1175,21 @@ namespace SintegraBr.Common
                     for (intPos = 1; (intPos <= 8); intPos++)
 
                     {
-
                         intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                        intValor = (intValor * (10 - intPos));
+                        intValor = (intValor*(10 - intPos));
 
                         intSoma = (intSoma + intValor);
-
                     }
 
-                    intResto = (intSoma % 11);
+                    intResto = (intSoma%11);
 
                     intValor = (11 - intResto);
 
                     if ((intValor > 9))
 
                     {
-
                         intValor = 0;
-
                     }
 
                     strDigito1 = Convert.ToString(intValor).Substring((Convert.ToString(intValor).Length - 1));
@@ -1220,19 +1199,20 @@ namespace SintegraBr.Common
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion SE
+
+                    #region SP
 
                 case "SP":
 
                     if ((strOrigem.Substring(0, 1) == "P"))
 
                     {
-
                         strBase = (strOrigem.Trim() + "0000000000000").Substring(0, 13);
 
                         strBase2 = strBase.Substring(1, 8);
@@ -1244,10 +1224,9 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
 
                             intSoma = (intSoma + intValor);
 
@@ -1256,35 +1235,27 @@ namespace SintegraBr.Common
                             if ((intPeso == 2))
 
                             {
-
                                 intPeso = 3;
-
                             }
 
                             if ((intPeso == 9))
 
                             {
-
                                 intPeso = 10;
-
                             }
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 = Convert.ToString(intResto).Substring((Convert.ToString(intResto).Length - 1));
 
                         strBase2 = (strBase.Substring(0, 8)
-
                                     + (strDigito1 + strBase.Substring(10, 3)));
-
                     }
 
                     else
 
                     {
-
                         strBase = (strOrigem.Trim() + "000000000000").Substring(0, 12);
 
                         intSoma = 0;
@@ -1294,10 +1265,9 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
 
                             intSoma = (intSoma + intValor);
 
@@ -1306,27 +1276,21 @@ namespace SintegraBr.Common
                             if ((intPeso == 2))
 
                             {
-
                                 intPeso = 3;
-
                             }
 
                             if ((intPeso == 9))
 
                             {
-
                                 intPeso = 10;
-
                             }
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 = Convert.ToString(intResto).Substring((Convert.ToString(intResto).Length - 1));
 
                         strBase2 = (strBase.Substring(0, 8)
-
                                     + (strDigito1 + strBase.Substring(9, 2)));
 
                         intSoma = 0;
@@ -1336,10 +1300,9 @@ namespace SintegraBr.Common
                         for (intPos = 11; (intPos <= 1); intPos = (intPos + -1))
 
                         {
-
                             intValor = int.Parse(strBase.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * intPeso);
+                            intValor = (intValor*intPeso);
 
                             intSoma = (intSoma + intValor);
 
@@ -1348,30 +1311,28 @@ namespace SintegraBr.Common
                             if ((intPeso > 10))
 
                             {
-
                                 intPeso = 2;
-
                             }
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito2 = Convert.ToString(intResto).Substring((Convert.ToString(intResto).Length - 1));
 
                         strBase2 = (strBase2 + strDigito2);
-
                     }
 
                     if ((strBase2 == strOrigem))
 
                     {
-
                         retorno = true;
-
                     }
 
                     break;
+
+                    #endregion SP
+
+                    #region TO
 
                 case "TO":
 
@@ -1379,11 +1340,9 @@ namespace SintegraBr.Common
 
                     if ((("01,02,03,99".IndexOf(strBase.Substring(2, 2), 0, System.StringComparison.OrdinalIgnoreCase) +
                           1)
-
                          > 0))
 
                     {
-
                         strBase2 = (strBase.Substring(0, 2) + strBase.Substring(4, 6));
 
                         intSoma = 0;
@@ -1391,16 +1350,14 @@ namespace SintegraBr.Common
                         for (intPos = 1; (intPos <= 8); intPos++)
 
                         {
-
                             intValor = int.Parse(strBase2.Substring((intPos - 1), 1));
 
-                            intValor = (intValor * (10 - intPos));
+                            intValor = (intValor*(10 - intPos));
 
                             intSoma = (intSoma + intValor);
-
                         }
 
-                        intResto = (intSoma % 11);
+                        intResto = (intSoma%11);
 
                         strDigito1 =
                             ((intResto < 2) ? "0" : Convert.ToString((11 - intResto))).Substring(
@@ -1411,13 +1368,12 @@ namespace SintegraBr.Common
                         if ((strBase2 == strOrigem))
 
                         {
-
                             retorno = true;
-
                         }
-
                     }
                     break;
+
+                    #endregion TO
             }
             return retorno;
         }

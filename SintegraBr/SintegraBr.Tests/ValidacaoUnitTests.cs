@@ -15,11 +15,14 @@ namespace SintegraBr.Tests
         [TestMethod]
         public void ConsisteInscricaoEstadualValida()
         {
-            var result = ValidarIe.ConsisteInscricaoEstadual("INSCR_ESTADUAL", "GO");
+            var result = ValidarIe.ConsisteInscricaoEstadual("ISENTO", "GO");
 
             Assert.AreEqual(0, result);
         }
 
+        /// <summary>
+        /// Validar I.E. utilizando DLL do Sintegra
+        /// </summary>
         [TestMethod]
         public void ConsisteInscricaoEstadualInvalida()
         {
@@ -34,11 +37,14 @@ namespace SintegraBr.Tests
         [TestMethod]
         public void ValidarInscricaoEstadualTrue()
         {
-            var result = ValidarIe.Validar("INSCR_ESTADUAL", "GO");
+            var result = ValidarIe.Validar("ISENTO", "GO");
 
             Assert.AreEqual(true, result);
         }
 
+        /// <summary>
+        /// Validar I.E. por UF
+        /// </summary>
         [TestMethod]
         public void ValidarInscricaoEstadualFalse()
         {
