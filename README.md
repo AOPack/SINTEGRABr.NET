@@ -1,4 +1,4 @@
-# SINTEGRABr
+# SINTEGRABr [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PALXSZGKPPCCE)
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SINTEGRA.
 
 ###TODO
