@@ -21,8 +21,9 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Código do modelo da nota fiscal
         /// </summary>
-        [SintegraCampos(3, "MODELO", "N", 2, 0, true)]
+        [SintegraCampos(2, "MODELO", "N", 2, 0, true)]
         public int Modelo { get; set; }
+        //alteração gustavo SintegraCampos(3, ... )  -> SintegraCampos(2, ...) 
 
         /// <summary>
         /// Série da nota fiscal
