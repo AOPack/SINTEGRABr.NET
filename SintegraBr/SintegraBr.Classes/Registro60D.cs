@@ -18,7 +18,7 @@ namespace SintegraBr.Classes
         /// Subtipo "D"
         /// </summary>
         [SintegraCampos(2, "SUBTIPO", "X", 1, 0, true)]
-        public string Subtipo { get; set; } = "D";
+        public string Subtipo => "D";
 
         /// <summary>
         /// Data de emissão do documento fiscal

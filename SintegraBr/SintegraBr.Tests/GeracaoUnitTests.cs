@@ -62,6 +62,33 @@ namespace SintegraBr.Tests
         }
 
         [TestMethod]
+        public void GerarRegistro60I()
+        {
+            var reg60I = new Registro60I();
+            reg60I.BaseCalculoIcms = 5.50M;
+            reg60I.CodItem = "ITEM_1";
+            reg60I.DataEmissao = DateTime.Now;
+            reg60I.ModeloDoc = "2D";
+            reg60I.NumCoo = 123;
+            reg60I.NumFabricacao = "123456789";
+            reg60I.NumItem = 1;
+            reg60I.Quantidade = 1;
+            reg60I.SituacaoTributaria = "1700";
+            reg60I.ValorIcms = 0.94M;
+            reg60I.ValorItem = 5.50M;
+            
+            var result = reg60I.EscreverCampos();
+
+            var actual = new List<string>();
+            actual.Add(result.ToStringSafe());
+
+            var expected = new List<string>();
+            expected.Add("FINALIZAR_TESTE_DO_60I_SEM_60M_CORRESPONDENTE_E_SEM_75_CORRESPONDENTE");
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
         public void GerarRegistro90()
         {
             var linhas = new List<string>();

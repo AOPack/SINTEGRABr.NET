@@ -14,7 +14,7 @@ namespace SintegraBr.Classes
         /// Subtipo "M"
         /// </summary>
         [SintegraCampos(2, "SUBTIPO", "X", 1, 0, true)]
-        public string Subtipo { get; set; } = "M";
+        public string Subtipo => "M";
 
         /// <summary>
         /// Data de emissão dos documentos fiscais
@@ -67,13 +67,13 @@ namespace SintegraBr.Classes
         /// <summary>
         /// Valor acumulado no totalizador de venda bruta
         /// </summary>
-        [SintegraCampos(11, "VALOR DE VENDA BRUTA", "N", 16, 2, true)]
+        [SintegraCampos(11, "VALOR DE VENDA BRUTA", "N", 16, 0, true)]
         public decimal VlVendaBruta { get; set; }
 
         /// <summary>
         /// Valor acumulado no totalizador geral
         /// </summary>
-        [SintegraCampos(12, "TOTALIZADOR GERAL DO EQUIP.", "N", 16, 2, true)]
+        [SintegraCampos(12, "TOTALIZADOR GERAL DO EQUIP.", "N", 16, 0, true)]
         public decimal VlTotalizadorGeral { get; set; }
 
         /// <summary>
