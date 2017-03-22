@@ -112,21 +112,36 @@ namespace SintegraBr.Common
                                 sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
                         else if (isNullableDateTime && hasValue)
                             sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
-                        else if (isCode)
-                            sb.Append(propertyValueToStringSafe.PadRight(sintegraCampoAttr.Tamanho, ' '));
-                        else if (isNumber && hasValue)
-                            sb.Append(
-                                propertyValue.ToString()
-                                    .Replace(".", "")
-                                    .Replace(",", "")
-                                    .PadLeft(sintegraCampoAttr.Tamanho, '0'));
-                        else
-                        {
-                            if (propertyLength > 0 && (propertyLength > sintegraCampoAttr.Tamanho))
-                                sb.Append(propertyValueToStringSafe.Substring(0, sintegraCampoAttr.Tamanho));
+                        else 
+                            //adicionado por gustavo - inicio
+                            if (isCode)
+                            {
+                                if (sintegraCampoAttr.Campo == "BRANCOS")
+                                {
+                                    for (int cont = 0; cont < sintegraCampoAttr.Tamanho; cont++)
+                                        sb.Append(" ");
+                                }
+                                else
+                                {
+                                    sb.Append(' ');
+                                }
+                            }//adicionado por gustavo fim
                             else
-                                sb.Append(propertyValueToStringSafe);
-                        }
+                            {
+                                if (isNumber && hasValue)
+                                    sb.Append(
+                                        propertyValue.ToString()
+                                            .Replace(".", "")
+                                            .Replace(",", "")
+                                            .PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                                else
+                                {
+                                    if (propertyLength > 0 && (propertyLength > sintegraCampoAttr.Tamanho))
+                                        sb.Append(propertyValueToStringSafe.Substring(0, sintegraCampoAttr.Tamanho));
+                                    else
+                                        sb.Append(propertyValueToStringSafe);
+                                }
+                            }
                     }
                 }
             }
