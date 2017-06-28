@@ -25,7 +25,7 @@ namespace SintegraBr.Common
              * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
              */
             var listaComPropriedadesOrdenadas =
-                type.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SintegraCamposAttribute), true)
+                type.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof (SintegraCamposAttribute), true)
                     .Cast<SintegraCamposAttribute>()
                     .Select(a => a.Ordem)
                     .FirstOrDefault())
@@ -47,10 +47,10 @@ namespace SintegraBr.Common
                     var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
 
                     var isRequired = sintegraCampoAttr.IsObrigatorio;
-                    var isDecimal = property.PropertyType == typeof(decimal);
-                    var isNullableDecimal = property.PropertyType == typeof(decimal?);
-                    var isDateTime = property.PropertyType == typeof(DateTime);
-                    var isNullableDateTime = property.PropertyType == typeof(DateTime?);
+                    var isDecimal = property.PropertyType == typeof (decimal);
+                    var isNullableDecimal = property.PropertyType == typeof (decimal?);
+                    var isDateTime = property.PropertyType == typeof (DateTime);
+                    var isNullableDateTime = property.PropertyType == typeof (DateTime?);
                     var hasValue = !string.IsNullOrEmpty(propertyValueToStringSafe) ||
                                    !string.IsNullOrWhiteSpace(propertyValueToStringSafe);
 
@@ -72,7 +72,10 @@ namespace SintegraBr.Common
                     const decimal vZero = 0M;
                     if (isRequired && isDecimal &&
                         (propertyValueToStringSafe == string.Empty || propertyValueToStringSafe.ToDecimal() == 0))
-                        sb.Append(vZero.ToString("N" + sintegraCampoAttr.QtdCasas).Replace(",", "").PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                        sb.Append(
+                            vZero.ToString("N" + sintegraCampoAttr.QtdCasas)
+                                .Replace(",", "")
+                                .PadLeft(sintegraCampoAttr.Tamanho, '0'));
                     else
                     {
                         if (isDecimal)
@@ -115,11 +118,13 @@ namespace SintegraBr.Common
                         else if (isCode)
                             sb.Append(propertyValueToStringSafe.PadRight(sintegraCampoAttr.Tamanho, ' '));
                         else if (isNumber && hasValue)
-                            sb.Append(
-                                propertyValue.ToString()
-                                    .Replace(".", "")
-                                    .Replace(",", "")
-                                    .PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                        {
+                            var valueProp = propertyValue.ToString().Replace(".", "").Replace(",", "");
+                            if (valueProp.Length > sintegraCampoAttr.Tamanho)
+                                sb.Append(valueProp.Substring(0, sintegraCampoAttr.Tamanho));
+                            else
+                                sb.Append(valueProp.PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                        }
                         else
                         {
                             if (propertyLength > 0 && (propertyLength > sintegraCampoAttr.Tamanho))
