@@ -58,8 +58,6 @@ namespace SintegraBr.Common
                         ? propertyValueToStringSafe.Length
                         : 0;
 
-                    var propertyLengthDocumented = sintegraCampoAttr.Tamanho;
-
                     // Verificação necessária p/ ajustes no tamanho de campos.
                     var isCode = sintegraCampoAttr.Tipo == "X";
                     var isNumber = sintegraCampoAttr.Tipo == "N";
@@ -109,21 +107,21 @@ namespace SintegraBr.Common
                             }
                         }
                         else if (isDateTime && hasValue)
-                            if (isPartialDate)
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy"));
-                            else
-                                sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
+                            sb.Append(isPartialDate
+                                ? Convert.ToDateTime(propertyValue).Date.ToString("MMyyyy")
+                                : Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
                         else if (isNullableDateTime && hasValue)
                             sb.Append(Convert.ToDateTime(propertyValue).Date.ToString("yyyyMMdd"));
                         else if (isCode)
-                            sb.Append(propertyValueToStringSafe.PadRight(sintegraCampoAttr.Tamanho, ' '));
+                            sb.Append(propertyValueToStringSafe.Length > sintegraCampoAttr.Tamanho
+                                ? propertyValueToStringSafe.Substring(0, sintegraCampoAttr.Tamanho)
+                                : propertyValueToStringSafe.PadRight(sintegraCampoAttr.Tamanho, ' '));
                         else if (isNumber && hasValue)
                         {
                             var valueProp = propertyValue.ToString().Replace(".", "").Replace(",", "");
-                            if (valueProp.Length > sintegraCampoAttr.Tamanho)
-                                sb.Append(valueProp.Substring(0, sintegraCampoAttr.Tamanho));
-                            else
-                                sb.Append(valueProp.PadLeft(sintegraCampoAttr.Tamanho, '0'));
+                            sb.Append(valueProp.Length > sintegraCampoAttr.Tamanho
+                                ? valueProp.Substring(0, sintegraCampoAttr.Tamanho)
+                                : valueProp.PadLeft(sintegraCampoAttr.Tamanho, '0'));
                         }
                         else
                         {
