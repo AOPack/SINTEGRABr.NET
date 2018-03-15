@@ -1,5 +1,9 @@
-# SINTEGRABr [![Donate](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=PALXSZGKPPCCE)
-Biblioteca gratuita  - desenvolvida com Visual Studio Community 2015 - para geração dos arquivos SINTEGRA.
+# SINTEGRABr
+Biblioteca gratuita  - desenvolvida com Visual Studio Community 2017 - para geração dos arquivos SINTEGRA.
+
+## Doações [![Donate](https://img.shields.io/badge/Doações-Doare-ff69b4.svg)](http://doa.re/1bz00)
+
+Se o projeto lhe ajudou ou contribuiu de alguma forma, faça uma doação. :D Ajude a dar continuidade nesse projeto.
 
 ###TODO
 
