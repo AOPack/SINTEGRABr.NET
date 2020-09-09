@@ -1,4 +1,7 @@
 # SINTEGRABr
+
+### Biblioteca descontinuada, para acessar a nova versão, [clique aqui](https://github.com/osamueloliveira/FiscalBr.NET).
+
 Biblioteca gratuita  - desenvolvida com Visual Studio Community 2017 - para geração dos arquivos SINTEGRA.
 
 ## Doações [![Donate](https://img.shields.io/badge/Doações-Doare-ff69b4.svg)](http://doa.re/1bz00)
